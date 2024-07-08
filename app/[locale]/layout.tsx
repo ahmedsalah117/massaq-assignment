@@ -1,11 +1,6 @@
 import MainLayout from "@/components/MainLayout";
-import { getSession } from "@/contextes/Authentication";
 import "@/styles/globals.scss";
-import { GetServerSidePropsContext, Metadata } from "next";
-import { getDictionary } from "./dictionaries";
-import { parse } from "cookie";
-import { cookies } from "next/headers";
-import { getCookie } from "cookies-next";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
   return [{ locale: "en" }, { locale: "ar" }];

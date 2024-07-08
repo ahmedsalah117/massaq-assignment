@@ -6,7 +6,6 @@ import { CommentType } from "@/types";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Button } from "@/components/ui/button";
-import { t } from "i18next";
 
 let numOfRenders = 0;
 

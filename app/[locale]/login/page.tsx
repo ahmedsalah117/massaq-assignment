@@ -1,12 +1,3 @@
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { setCookie } from "cookies-next";
-
-import { InferGetServerSidePropsType, NextPage } from "next";
-import { toast } from "react-toastify";
-
-import { useTranslations } from "next-intl";
-import { type } from "os";
 import { getDictionary } from "../dictionaries";
 import LoginForm from "@/components/LoginForm";
 

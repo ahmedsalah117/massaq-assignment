@@ -1,7 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
-import { AppContext, AuthContext } from "@/contextes";
-import Link from "next/link";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import axios from "axios";
