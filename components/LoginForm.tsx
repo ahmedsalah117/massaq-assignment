@@ -49,10 +49,10 @@ const LoginForm = ({ dict, locale }: props) => {
 
       if (response.status === 200) {
         const { token } = response.data;
-        if (token) {
+        
           setAccessToken(token);
           router.push("/");
-        }
+     
       } else {
         const { message, status } = response.data;
         if (response.status === 401 && message === "Invalid credentials") {
