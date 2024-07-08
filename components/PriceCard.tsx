@@ -41,9 +41,12 @@ const PriceCard = ({ type, description, price, features }: Props) => {
       {/* features */}
 
       <ul className="mt-10">
-        {features.map((feature) => {
+        {features.map((feature, index) => {
           return (
-            <li className="mt-1 flex items-center gap-2">
+            <li
+              key={feature + index}
+              className="mt-1 flex items-center gap-2"
+            >
               <FaCheck className="text-black dark:text-white" />
               {feature}
             </li>

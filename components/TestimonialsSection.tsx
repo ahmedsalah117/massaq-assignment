@@ -17,8 +17,8 @@ const TestimonialsSection = () => {
       </div>
       <h3 className="mt-4 text-center text-4xl font-bold">What are people saying</h3>
       <p className="mt-3 text-center text-sm">
-        "Thank you for your trust in Crypt Land! We are grateful for your feedback and are committed to providing the
-        best [products/
+        &quot;Thank you for your trust in Crypt Land! We are grateful for your feedback and are committed to providing
+        the best [products/
         <br />
         services offered]. Read what our clients have to say about their experience with us.
       </p>

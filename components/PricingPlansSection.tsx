@@ -17,8 +17,8 @@ const PricingPlansSection = () => {
       </div>
       <h3 className="mt-4 text-center text-4xl font-bold">Find the right plan</h3>
       <p className="mt-3 text-center text-sm">
-        "Invest in your company's future with our comprehensive financial solution. Contact us for pricing details and
-        see how we can <br /> help you streamline your finances and reach your business goals.
+        &quot;Invest in your company&apos;s future with our comprehensive financial solution. Contact us for pricing
+        details and see how we can <br /> help you streamline your finances and reach your business goals.&quot;
       </p>
       {/* Pricing Cards */}
       <div className="mt-10 flex justify-center gap-8">
