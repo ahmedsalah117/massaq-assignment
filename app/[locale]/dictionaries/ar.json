@@ -1,0 +1,11 @@
+{
+  "username": "اسم المستخدم",
+  "login": "تسجيل الدخول",
+  "register": "تسجيل",
+  "password": "كلمة المرور",
+  "login_description": "وصف تسجيل الدخول",
+  "login_title": "عنوان تسجيل الدخول",
+  "english": "الإنجليزية",
+  "arabic": "العربية",
+  "select_language": "اختر اللغة"
+}

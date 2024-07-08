@@ -1,0 +1,11 @@
+{
+  "username": "username",
+  "login": "Login",
+  "register": "Register",
+  "password": "Password",
+  "login_description": "login_description",
+  "login_title": "login_title",
+  "english": "English",
+  "arabic": "Arabic",
+  "select_language": "select_language"
+}
