@@ -1,8 +1,6 @@
 "use client";
 import Cookies from "js-cookie";
-import { setAccessToken } from "@/store/slices/app-slice";
 import React, { ReactNode, createContext, useEffect, useState } from "react";
-import { getSession } from "./Authentication";
 
 interface ProviderProps {
   children: ReactNode;
