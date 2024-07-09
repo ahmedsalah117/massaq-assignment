@@ -1,7 +1,7 @@
 
 What I did while working on this task includes the below:
 
-1-	Migration to the App router:
+** 1-	Migration to the App router: **
 a- I created a folder called App and created all routes in that folder.
 b- Deleted all routes in the pages folder , and deleted the app.tsx and document.tsx as well.
 2-	Implemented Authentication without using NextAuth:
