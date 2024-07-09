@@ -1,103 +1,46 @@
-Assignment Blueprint for backend
-===============================
 
-You will be working on migrating a Next.js application from the `pages` directory to the new `app` router.
+What I did while working on this task includes the below:
 
-## Project features:
-`NextAuth.js` to handle authentication in a `Next.js` app.
+1-	Migration to the App router:
+a- I created a folder called App and created all routes in that folder.
+b- Deleted all routes in the pages folder , and deleted the app.tsx and document.tsx as well.
+2-	Implemented Authentication without using NextAuth:
+a-  Created a login route handler under the App/[locale]/api folder, where I have created a POST handler that handles incoming login requests. It Simply validated the username & password against the values “user” & “password” for username and password respectively. If the values match, a new token will be generated and a response object will be returned to the client side including a message “login successful” and the generated token.
+b- On the Front-end I receive the response of the login route handler and check if it is successful, I will login the user and route them to the home page, and set a copy of the access token in the AppContext, so that it is globally available on the application level if needed.
+c- In the Home Page there is a Log out button. When clicked it sends an http request to the logout route handler which deletes the token from the browser cookies and then returns a success response to the front-end.
+d- On the front-end side once I receive a successful logout status, I route the user back to the login page.
+e- If the user tries to access a protected route like the comments page for example while he is not logged in, the middleware will redirect the user to the login page to force him to login first.
+3-	Internationalization:
+a- Implemented Next JS built-in Internationalization feature with 2 locales “en-US” & “ar-EG”.
+b- Created a middleware file that checks the incoming request and detects if the url includes a locale or not.
+c- if the url has a locale the user will be normally directed to the requested route.
+d- if the url does not include a locale then a default locale will be added which is the “en-US” locale, then the user will be redirected to the requested route.
+4-	Multi-language support:
+a- Enabled multi-language support ( Ar – En ) ,without using i18n,  in the login page only for the sake of simplicity and time saving.
+b- Please find the JSON translation files in the dictionaries folder under the app/[locale] folders.
+5-	Code analysis & improvement:
+a- I was mainly focused on implementing the required features without depending on the written code.
+6-	Removed Redux/Redux toolkit completely from the project and used the Context API only when needed.
+7-	TailwindCSS Design:
+a- Impelmented the attached Figma design in light & dark modes using Tailwind CSS & Shadcn UI, but I did not make it responsive deliberately for the sake of simplicity and time saving.
+b- you can access the designed page by clicking the “Tailwind page” link in the Navbar, but make sure to login first using “user” as a username and “password” as a password.
+8-	Responsive design (bonus-task):
+a- As mentioned above, I preferred to focus on implementing the required UI & features without implementing a responsive design just to save more time.
+9-	SEO & MetaData:
+a- Implemented the title & description metadata to all routes.
+10-	Comments:
+a- Created a comments api route handler under the app/[locale]/api folder.
+b- Created a data.js file where I store an array of comments and an array of users where each user has one or more comments.
+c- In the route handler file I am fetching the comments from the data.js file depending on the pageNumber and pageSize. The pageNumber is already included in the GET request payload and I assumed the pageSize to be 10 comments.
+d- Implemented pagination by sending a pageNumber in the payload of the GET http request to comments route handler and using that page number I am sending the comments as explained above.
+e- In the Comments page, I added a button called “load more comments” , each time the button is clicked a new http request is sent to the comments api to get more comments. It basically fetches the next page of comments until all comments are loaded, then the button is removed from the UI.
+f- Implemented a POST comment route handler, so that users can submit and add new comments. I assumed that the userId is always = “1”
+g- I kept the input validation that makes sure the comment is not an empty value.
+h- After the POST comment request is sent in the route handler I create a new comment object with a new id, then push the newly created comment object to the comments array in the data.js file, so it is all a temporary memory just for demonstration purposes.
+11-	Testing:
+a- I decided to focus on implementing the required features & UI and just implement manual testing.
+12-	Deployment ( bonus-task):
+a- I did deploy the project to Vercel and here is the deployed version : https://massaq-assignment.vercel.app/
+b- However, I realized that the deployed version of the app is not consistent when it comes to performance & routing for some reason, even though everything seems to be in order when it comes to the deployment process itself.
+c- I prefer that you download the project and run “npm install”, then “npm run dev” to run the app on the dev server instead of testing it on the deployed version.
 
-`i18next` to handle internationalization. 
-
-`NProgress` to show a progress bar at the top when a page changes.
-
-`redux` for state management.
-
-`reduxjs/toolkit` for API caching and data fetching.
-
-the application uses a fake API for login and registration: [DummyJSON Auth API](https://dummyjson.com/docs/auth#auth-login).
-
-## Task Requirements
-Your main task is to migrate the application from the `pages` dir to the new `app` router. While doing so, you are required to:
-
-Implement authentication and localization without using any third-party libraries.
-Enable i18n routing.
-Improve the current code to follow best practices.
-
-## Getting Started
-Follow these steps to set up the project locally:
-
-#### Clone the repository:
-```base
-git clone https://github.com/msaaqcom/assignment-frontend-blueprint/
-cd assignment-frontend-blueprint
-```
-
-#### Install dependencies:
-
-```base
-npm install
-```
-
-#### Copy the .env.example file to .env and add the necessary values for the keys:
-```base
-cp .env.example .env
-```
-#### Start the development server:
-```base
-npm run dev
-```
-
-## Project Structure
-
-- `contextes/`
-  - `AppContext.tsx`
-  - `AuthContext.tsx`
-  - `ToastContext.tsx`
-- `hooks/` - Custom hooks used in the application.
-- `store/` - Redux store setup.
-- `types/` - TypeScript types.
-- `utils/` - Utility helpers.
-- `pages/` - Contains app pages.
-- `public/` - Contains public eg: (locales).
-- `styles/` - Contains global styles.
-- `next-i18next.config.js` - i18next config
-
-## Your Task
-
-### 1. Migrate to App Router
-- Move the application from the `pages` directory to the new `app` router in Next.js.
-
-### 2. Implement Authentication
-- remove `NextAuth.js` and implement a Cookie-based session management
-
-### 3. Implement Internationalization
-- remove `i18next` and implement a solution using Next.js built-in support for internationalized
-
-### 4. Enable multi-language support
-- Implement i18n routing to support multiple languages.
-
-### 5. Analyze and improve the code
-- while migrating the app if you see any features that could be implemented better or improved by following best practices just apply what you think is right
-
-### 6. Replace Redux/Reduxjs Toolkit with Built-In Solutions
-- Remove Redux and Reduxjs Toolkit from the application and use built-in solutions
-
-### 7. Use TailwindCSS to code Pixel Perfect Design
-- Use Tailwind CSS to design [this page (with dark and light mode supported)](https://www.figma.com/design/SKLhZXkR26pi9VzR8R8hKC/SaaS-Landing-Page---Bento-UI-(Community)-(Copy)?m=dev&node-id=0-1) and apply a better design to the entire application UIs.
-
-### 8. Apply responsive design to the previous page (bonus task)
-
-### 9. SEO and MetaData
-- Ensure the application works perfectly with SEO.
-- Implement appropriate metadata for all pages to enhance SEO.
-
-### 10. Comments
-- in the comments page you should apply pagination to the comments to replace Reduxjs Toolkit with whatever you feel right
-
-### 11. Unit/E2E testing for your application
-
-### 12. Deployment (bonus task)
-- deploy your project to Vercel
- 
-## Submission
-Once you have completed the task, submit your changes by pushing to a new branch and creating a pull request in your cloned repository. Include a detailed description of the changes you made and any additional improvements or features you implemented.
